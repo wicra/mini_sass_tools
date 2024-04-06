@@ -1,0 +1,243 @@
+/*SIDE BAR*/
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+body{
+    background-color: #f3f5f9;
+}
+
+.wrapper{
+    display: flex;
+    position: relative;
+}
+
+.wrapper .sidebar{
+    width: 200px;
+    height: 100%;
+    background: #4b4276;
+    padding: 30px 0px;
+    position: fixed;
+}
+
+.user_connecter{
+    display: flex;
+    justify-content: flex-start;
+    padding: 0 15px;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.user_connecter i {
+    font-size: 25px;
+    margin-right: 1vw;
+}
+
+.wrapper .sidebar ul li{
+    padding: 15px;
+    border-bottom: 1px solid #bdb8d7;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-top: 1px solid rgba(255,255,255,0.05);
+}    
+
+.wrapper .sidebar ul li a{
+    color: #bdb8d7;
+    display: block;
+}
+
+.wrapper .sidebar ul li a .fas{
+    width: 25px;
+}
+
+.wrapper .sidebar ul li:hover{
+    background-color: #594f8d;
+}
+        
+
+    
+.wrapper .sidebar .social_media{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+}
+
+.wrapper .sidebar .social_media a{
+    display: block;
+    width: 40px;
+    background: #594f8d;
+    height: 40px;
+    line-height: 45px;
+    text-align: center;
+    margin: 0 5px;
+    color: #bdb8d7;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.wrapper .main_content{
+    width: 100%;
+    margin-left: 200px;
+}
+
+.wrapper .main_content .header{
+    padding: 20px;
+    background: #fff;
+    color: #717171;
+    border-bottom: 1px solid #e0e4e8;
+}
+
+.wrapper .main_content .info{
+    margin: 20px;
+    color: #717171;
+    line-height: 25px;
+}
+
+.wrapper .main_content .info div{
+    margin-bottom: 20px;
+}
+
+
+/* SOUS MENU */
+.submenu {
+    position: relative;
+}
+
+.submenu-content {
+    width: 100%;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    padding: 0;
+    border: 1px solid #ccc;
+}
+
+.submenu-content li {
+    color: #4b4276;
+    padding: 10px;
+}
+
+.submenu:hover .submenu-content, .submenu:focus-within .submenu-content {
+    display: block;
+
+}
+
+
+/*OUTILS*/
+.outils-contener {
+    width: 100%;
+    padding: 2vh 5vw;
+    
+}
+
+.contenue{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 50px;
+    justify-items: center; /* Aligner horizontalement au centre */
+    align-items: start; 
+}
+.outils{
+    width: 90%;
+    background-color: blueviolet;
+    padding: 2vh 1vw;
+}
+
+.nom-site a{
+    font-size: 25px;
+    color: brown;
+}
+
+.description h4{
+    color: aliceblue;
+
+}
+
+
+/*FORMULAIRE AJOUT*/
+
+.formulaire-ajout {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: white;
+    padding: 2.5em;
+    border-radius: 25px;
+    transition: .4s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.4) 1px 2px 2px;
+}
+
+.formulaire-ajout:hover {
+    transform: translateX(-0.5em) translateY(-0.5em);
+    border: 1px solid #171717;
+    box-shadow: 10px 10px 0px #666666;
+}
+
+.heading {
+    color: black;
+    padding-bottom: 2em;
+    text-align: center;
+    font-weight: bold;
+}
+
+.contener-input{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.input-ajout {
+    border-radius: 5px;
+    border: 1px solid whitesmoke;
+    background-color: whitesmoke;
+    outline: none;
+    padding: 0.7em;
+    transition: .4s ease-in-out;
+}
+
+.input-ajout:hover {
+    box-shadow: 6px 6px 0px #969696,-3px -3px 10px #ffffff;
+}
+
+.input-ajout:focus {
+    background: #ffffff;
+    box-shadow: inset 2px 5px 10px rgba(0,0,0,0.3);
+}
+
+.formulaire-ajout .btn {
+    margin-top: 2em;
+    align-self: center;
+    padding: 0.7em;
+    padding-left: 1em;
+    padding-right: 1em;
+    border-radius: 10px;
+    border: none;
+    color: black;
+    transition: .4s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.4) 1px 1px 1px;
+}
+
+.formulaire-ajout .btn:hover {
+    box-shadow: 6px 6px 0px #969696,-3px -3px 10px #ffffff;
+    transform: translateX(-0.5em) translateY(-0.5em);
+}
+
+.formulaire-ajout .btn:active {
+    transition: .2s;
+    transform: translateX(0em) translateY(0em);
+    box-shadow: none;
+}
+
+
