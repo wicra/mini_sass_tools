@@ -32,10 +32,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <select id="categorie" name="categorie">
             <option value="0">Choisissez une catégorie</option>
             <option value="1">Font</option>
-            <option value="2">Catégorie 2</option>
-            <option value="3">Catégorie 3</option>
+            <option value="2">Html</option>
+            <option value="3">Css</option>
+            <option value="4">Js</option>
+            <option value="5">Divers</option>
         </select> 
+
+        <button type="submit" class="btn">AJOUTER</button>
     </div>
 
-    <button type="submit" class="btn">Submit</button>
 </form>

@@ -151,13 +151,22 @@ body{
 }
 .outils{
     width: 90%;
-    background-color: blueviolet;
+    background-color: cadetblue;
     padding: 2vh 1vw;
+    border-radius: 0.8rem;
+    text-transform: lowercase;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.7s ease;
+  }
+  
+.outils:hover {
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
 }
 
 .nom-site a{
-    font-size: 25px;
-    color: brown;
+    font-size: 20px;
+    color: antiquewhite;
 }
 
 .description h4{
@@ -165,31 +174,20 @@ body{
 
 }
 
-
-/*FORMULAIRE AJOUT*/
+/* FORMULAIRE AJOUT */
 
 .formulaire-ajout {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    background-color: white;
-    padding: 2.5em;
-    border-radius: 25px;
-    transition: .4s ease-in-out;
-    box-shadow: rgba(0, 0, 0, 0.4) 1px 2px 2px;
-}
-
-.formulaire-ajout:hover {
-    transform: translateX(-0.5em) translateY(-0.5em);
-    border: 1px solid #171717;
-    box-shadow: 10px 10px 0px #666666;
+    padding: 20vh 0;
 }
 
 .heading {
-    color: black;
-    padding-bottom: 2em;
+    color: #4b4276;
+    padding-bottom: 4vh;
     text-align: center;
     font-weight: bold;
+    font-size: 40px;
 }
 
 .contener-input{
@@ -198,46 +196,44 @@ body{
     align-items: center;
 }
 
-.input-ajout {
-    border-radius: 5px;
-    border: 1px solid whitesmoke;
-    background-color: whitesmoke;
-    outline: none;
-    padding: 0.7em;
-    transition: .4s ease-in-out;
-}
-
-.input-ajout:hover {
-    box-shadow: 6px 6px 0px #969696,-3px -3px 10px #ffffff;
-}
-
-.input-ajout:focus {
-    background: #ffffff;
-    box-shadow: inset 2px 5px 10px rgba(0,0,0,0.3);
-}
-
-.formulaire-ajout .btn {
-    margin-top: 2em;
-    align-self: center;
-    padding: 0.7em;
-    padding-left: 1em;
-    padding-right: 1em;
-    border-radius: 10px;
+.input-ajout , #categorie{
+    padding: 2vh 1vw;
     border: none;
-    color: black;
-    transition: .4s ease-in-out;
-    box-shadow: rgba(0, 0, 0, 0.4) 1px 1px 1px;
+    border-radius: 0.4rem;
+    margin: 1vh 1vw;
 }
 
-.formulaire-ajout .btn:hover {
-    box-shadow: 6px 6px 0px #969696,-3px -3px 10px #ffffff;
-    transform: translateX(-0.5em) translateY(-0.5em);
+/*bouton */
+.contener-input button {
+    padding: 2vh 1vw;
+    border: none;
+    border-radius: 0.4rem;
+    margin: 1vh 1vw;
+    background-color: #4b4276;
+    color: white;
+
 }
 
-.formulaire-ajout .btn:active {
-    transition: .2s;
-    transform: translateX(0em) translateY(0em);
-    box-shadow: none;
+.contener-input button:active {
+    transition: 0.3s;
+    transform: scale(0.93);
 }
 
 
+
+
+
+
+
+/* ACCUEIL */
+.welcome{
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    padding: 20vh 0;
+}
+.message h1{
+    color: #4b4276;
+    font-weight: bold;
+    font-size: 50px;
+}
