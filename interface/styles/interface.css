@@ -53,7 +53,7 @@ body{
     display: block;
 }
 
-.wrapper .sidebar ul li a .fas{
+.wrapper .sidebar ul li a i{
     width: 25px;
 }
 

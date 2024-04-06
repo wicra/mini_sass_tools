@@ -69,18 +69,18 @@ if(isset($_GET['logout'])){
 
                 <ul>
                     <!-- ACCUEIL -->
-                    <li class="accueil"><a href="#"><i class="fas fa-address-card"></i>ACCUEIL</a></li>
+                    <li class="accueil"><a href="#"><i class="fa-solid fa-house"></i>Accueil</a></li>
                     <!-- DECONNECTION -->
-                    <li><a href="?logout=true"><i class="fas fa-sign-out-alt"></i> Déconnexion</a></li>
+                    <li><a href="?logout=true"><i class="fa-solid fa-right-from-bracket"></i>Déconnexion</a></li>
                     <!-- AJOUT -->
-                    <li class="ajout_outils"><a href="#"><i class="fas fa-address-card"></i>Ajouter</a></li>
+                    <li class="ajout_outils"><a href="#"><i class="fa-regular fa-square-plus"></i>Ajouter</a></li>
                     
                     <!-- MENU DEROULANTE -->
                     <li class="submenu">
-                        <a href="#"><i class="fas fa-address-card"></i>Outils</a>
+                        <a href="#"><i class="fa-solid fa-toolbox"></i>Outils</a>
                         <ul class="submenu-content">
-                            <li  class="categorie-font"><a href="#" ><i class="fas fa-address-card"></i>Font</a></li>
-                            <li  ><a href="#"><i class="fas fa-address-card"></i>Animation</a></li>
+                            <li  class="categorie-font"><a href="#" ><i class="fa-solid fa-font"></i>Font</a></li>
+                            <li  ><a href="#"><i class="fa-solid fa-film"></i>Animation</a></li>
                         </ul>
                         <script>
                             /////////////////////////////////////////////////////////
