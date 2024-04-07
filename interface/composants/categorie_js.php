@@ -13,6 +13,7 @@ if ($resultat) {
         echo "<div class=\"outils\">
                 <div class=\"nom-site\">
                     <a href='" . $row['domaine'] . "' target='_blank'>" . $row['name'] . "</a>
+                    <i class=\"fa-solid fa-globe\"></i>
                 </div>
                 <div class=\"description\">
                     <h4>" . $row['description'] . "</h4>

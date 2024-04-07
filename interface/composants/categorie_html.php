@@ -1,7 +1,7 @@
 <?php
 include('./../connection/connection_db.php');
 // Requête SQL pour récupérer les lignes avec la catégorie 1
-$sql = "SELECT name, domaine, description FROM contenue WHERE categorie = 2";
+$sql = "SELECT name, domaine, description ,user_name FROM contenue WHERE categorie = 2";
 
 // Exécution de la requête
 $resultat = mysqli_query($conn, $sql);
@@ -16,7 +16,9 @@ if ($resultat) {
                 </div>
                 <div class=\"description\">
                     <h4>" . $row['description'] . "</h4>
+                    <h5>" . $row['user_name'] . "</h5>
                 </div>
+
             </div>";
     }
 } else {
@@ -27,3 +29,7 @@ if ($resultat) {
 mysqli_close($conn);
 ?>
 
+<div class="user_ajout">
+    <h4></h4>
+    <h4></h4>
+</div>

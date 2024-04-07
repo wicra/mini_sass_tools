@@ -78,6 +78,7 @@ if(isset($_GET['logout'])){
                     <!-- MENU DEROULANTE -->
                     <li class="submenu">
                         <a href="#"><i class="fa-solid fa-toolbox"></i>Outils</a>
+
                         <ul class="submenu-content">
                             <li  class="categorie-font"><a href="#" ><i class="fa-solid fa-font"></i>Font</a></li>
                             <li  ><a href="#"><i class="fa-solid fa-film"></i>Animation</a></li>
@@ -85,8 +86,8 @@ if(isset($_GET['logout'])){
                             <li  class="categorie-css"><a href="#" ><i class="fa-solid fa-font"></i>Html</a></li>
                             <li  class="categorie-js"><a href="#" ><i class="fa-brands fa-js"></i>Js</a></li>
                             <li  class="categorie-divers"><a href="#" ><i class="fa-solid fa-border-all"></i>Divers</a></li>
-                           
                         </ul>
+
                         <script>
                             /////////////////////////////////////////////////////////
                             //                 SOUS MENU AFFICHAGE                 //
@@ -120,7 +121,19 @@ if(isset($_GET['logout'])){
                 <!-- HEADER -->
                 <div class="header">
                     <div id="recherche">
-
+                        <form class="form-recherche" action="./composants/categorie_rechercher.php" method="post">
+                            <button>
+                                <svg width="17" height="16" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="search">
+                                    <path d="M7.667 12.667A5.333 5.333 0 107.667 2a5.333 5.333 0 000 10.667zM14.334 14l-2.9-2.9" stroke="currentColor" stroke-width="1.333" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                            </button>
+                            <input class="input" placeholder="Recherche" required="" type="text" name= "recherche">
+                            <button class="reset" type="submit">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                            </button>
+                        </form>
                     </div>
                 </div> 
 
@@ -135,24 +148,6 @@ if(isset($_GET['logout'])){
             <!-- SCRIPT INCLUDE LE COMPOSANT AU CLICK -->
             <script>
                 $(document).ready(function() {
-
-                    /////////////////////////////////////////////////////////
-                    //           CHARGEMENT DE LA BARRE RECHERCHE         //
-                    /////////////////////////////////////////////////////////
-                    function loadRecherche() {
-                        $.ajax({
-                            url: './composants/recherche.php',
-                            type: 'GET',
-                            success: function(response) {
-                                $('#recherche').html(response); // Ajoute le contenu
-                            },
-                            error: function(xhr, status, error) {
-                                console.error('Erreur lors du chargement du fichier PHP:', error);
-                            }
-                        });
-                    }
-                    loadRecherche();
-
                     /////////////////////////////////////////////////////////
                     //                  RESULTA RECHERCHE                  //
                     /////////////////////////////////////////////////////////

@@ -1,5 +1,11 @@
 <?php
 /////////////////////////////////////////////////////////
+//                        SESSION                     //
+/////////////////////////////////////////////////////////
+
+session_start();
+
+/////////////////////////////////////////////////////////
 //                     AJOUT OUTILS                    //
 /////////////////////////////////////////////////////////
 
@@ -8,11 +14,12 @@ include('./../connection/connection_db.php');
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = htmlspecialchars(trim($_POST["nom_site"])); // Nettoie et récupère le nom du site.
     $domaine = htmlspecialchars(trim($_POST["lien_site"])); // Nettoie et récupère le lien du site.
-    $description = htmlspecialchars(trim($_POST["description_site"])); // Nettoie et récupère la description.
     $categorie = intval($_POST["categorie"]); // Convertit la valeur de la catégorie en entier.
+    $description = htmlspecialchars(trim($_POST["description_site"])); // Nettoie et récupère la description.
+    $user_name = $_SESSION["username"]; // Récupère le nom d'utilisateur de la session
 
     // Requête SQL pour insérer les données dans la table 'contenue'.
-    $sql = "INSERT INTO `contenue` (`name`, `domaine`, `categorie`, `description`) VALUES ('$name', '$domaine', '$categorie', '$description')";
+    $sql = "INSERT INTO `contenue` (`name`, `domaine`, `categorie`, `description`, `user_name`) VALUES ('$name', '$domaine', '$categorie', '$description', '$user_name')";
     $result = mysqli_query($conn, $sql);
     if ($result) {
         header("location: ./../interface.php");
