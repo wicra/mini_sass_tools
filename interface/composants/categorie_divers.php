@@ -1,7 +1,7 @@
 <?php
 include('./../connection/connection_db.php');
 // Requête SQL pour récupérer les lignes avec la catégorie 1
-$sql = "SELECT name, domaine, description FROM contenue WHERE categorie = 5";
+$sql = "SELECT name, domaine, description, user_name FROM contenue WHERE categorie = 4";
 
 // Exécution de la requête
 $resultat = mysqli_query($conn, $sql);
@@ -12,11 +12,15 @@ if ($resultat) {
     while ($row = mysqli_fetch_assoc($resultat)) {
         echo "<div class=\"outils\">
                 <div class=\"nom-site\">
+                    <i class=\"fa-solid fa-globe\"></i>
                     <a href='" . $row['domaine'] . "' target='_blank'>" . $row['name'] . "</a>
+
                 </div>
                 <div class=\"description\">
-                    <h4>" . $row['description'] . "</h4>
+                    <h4>“"  . $row['description'] .  "”</h4>
+                    <h5>" . $row['user_name'] . "</h5>
                 </div>
+            
             </div>";
     }
 } else {

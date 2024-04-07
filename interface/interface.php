@@ -80,12 +80,11 @@ if(isset($_GET['logout'])){
                         <a href="#"><i class="fa-solid fa-toolbox"></i>Outils</a>
 
                         <ul class="submenu-content">
-                            <li  class="categorie-font"><a href="#" ><i class="fa-solid fa-font"></i>Font</a></li>
-                            <li  ><a href="#"><i class="fa-solid fa-film"></i>Animation</a></li>
-                            <li  class="categorie-html"><a href="#" ><i class="fa-brands fa-css3-alt"></i>Css</a></li>
-                            <li  class="categorie-css"><a href="#" ><i class="fa-solid fa-font"></i>Html</a></li>
+                            <li  class="categorie-html"><a href="#" ><i class="fa-brands fa-html5"></i>Html</a></li>
+                            <li  class="categorie-css"><a href="#" ><i class="fa-brands fa-css3-alt"></i>Css</a></li>
                             <li  class="categorie-js"><a href="#" ><i class="fa-brands fa-js"></i>Js</a></li>
                             <li  class="categorie-divers"><a href="#" ><i class="fa-solid fa-border-all"></i>Divers</a></li>
+                            <li  class="categorie-font"><a href="#" ><i class="fa-solid fa-font"></i>Font</a></li>
                         </ul>
 
                         <script>
@@ -195,22 +194,6 @@ if(isset($_GET['logout'])){
                     });
 
                     /////////////////////////////////////////////////////////
-                    //                   SOUS MENU FRONT                   //
-                    /////////////////////////////////////////////////////////
-                    $('.categorie-font').click(function() {
-                        $.ajax({
-                            url: './composants/categorie_font.php',
-                            type: 'GET',
-                            success: function(response) {
-                                $('#contenue').html(response); // Ajoute le contenu
-                            },
-                            error: function(xhr, status, error) {
-                                console.error('Erreur lors du chargement du fichier PHP:', error);
-                            }
-                        });
-                    });
-
-                    /////////////////////////////////////////////////////////
                     //                       MENU AJOUT                    //
                     /////////////////////////////////////////////////////////
                     $('.ajout_outils').click(function() {
@@ -275,22 +258,6 @@ if(isset($_GET['logout'])){
                     });
 
                     /////////////////////////////////////////////////////////
-                    //                   SOUS MENU JS                   //
-                    /////////////////////////////////////////////////////////
-                    $('.categorie-js').click(function() {
-                        $.ajax({
-                            url: './composants/categorie_js.php',
-                            type: 'GET',
-                            success: function(response) {
-                                $('#contenue').html(response); // Ajoute le contenu
-                            },
-                            error: function(xhr, status, error) {
-                                console.error('Erreur lors du chargement du fichier PHP:', error);
-                            }
-                        });
-                    });
-
-                    /////////////////////////////////////////////////////////
                     //                   SOUS MENU DIVERS                   //
                     /////////////////////////////////////////////////////////
                     $('.categorie-divers').click(function() {
@@ -306,6 +273,21 @@ if(isset($_GET['logout'])){
                         });
                     });
 
+                    /////////////////////////////////////////////////////////
+                    //                   SOUS MENU FRONT                   //
+                    /////////////////////////////////////////////////////////
+                    $('.categorie-font').click(function() {
+                        $.ajax({
+                            url: './composants/categorie_font.php',
+                            type: 'GET',
+                            success: function(response) {
+                                $('#contenue').html(response); // Ajoute le contenu
+                            },
+                            error: function(xhr, status, error) {
+                                console.error('Erreur lors du chargement du fichier PHP:', error);
+                            }
+                        });
+                    });
                 });
             </script>
         </div>

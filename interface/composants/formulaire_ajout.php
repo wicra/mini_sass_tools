@@ -4,6 +4,18 @@
 /////////////////////////////////////////////////////////
 
 session_start();
+if(!isset($_SESSION["username"])){
+    header("location: ./connection/formulaire_connection.php");
+exit(); 
+}
+
+// déconnection
+if(isset($_GET['logout'])){
+    session_destroy(); 
+    header('location: ./connection/formulaire_connection.php');
+    exit; 
+}
+
 
 /////////////////////////////////////////////////////////
 //                     AJOUT OUTILS                    //
@@ -38,11 +50,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <select id="categorie" name="categorie">
             <option value="0">Choisissez une catégorie</option>
-            <option value="1">Font</option>
+            <option value="1">Html</option>
             <option value="2">Css</option>
-            <option value="3">Html</option>
-            <option value="4">Js</option>
-            <option value="5">Divers</option>
+            <option value="3">Js</option>
+            <option value="4">Divers</option>
+            <option value="5">Font</option>
         </select> 
 
         <button type="submit" class="btn">AJOUTER</button>
