@@ -188,6 +188,40 @@ if(isset($_GET['logout'])){
             <div class="main_content">
                 <!-- HEADER -->
                 <div class="header">
+                    <i style="font-size:25px; padding:0 2vw 0 1vw;" id="toggleSidebar" class="fa-solid fa-bars-staggered"></i>
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function() {
+                            const sidebar = document.querySelector('.sidebar');
+                            const mainContent = document.querySelector('.main_content');
+                            const toggleButton = document.getElementById('toggleSidebar');
+
+                            // CSS directement dans le JavaScript
+                            const css = `
+                                .sidebar {
+                                    /* Vos styles de sidebar ici */
+                                }
+                                .hidden {
+                                    display: none;
+                                }
+                            `;
+
+                            // Créer un élément style et ajouter le CSS
+                            const style = document.createElement('style');
+                            style.textContent = css;
+                            document.head.appendChild(style);
+
+                            toggleButton.addEventListener('click', function() {
+                                sidebar.classList.toggle('hidden');
+                                // Modifier le style de .main_content lorsque le bouton est cliqué
+                                if (sidebar.classList.contains('hidden')) {
+                                    mainContent.style.marginLeft = '0';
+                                } else {
+                                    mainContent.style.marginLeft = '200px';
+                                }
+                            });
+                        });
+                    </script>
+
                     <div id="recherche">
                         <form class="form-recherche" action="./composants/categorie_rechercher.php" method="post">
                             <button>
