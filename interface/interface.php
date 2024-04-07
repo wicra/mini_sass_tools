@@ -5,7 +5,7 @@
 
 session_start();
 if(!isset($_SESSION["username"])){
-    header("location: ./public/public_page.php");
+    header("location: ./connection/formulaire_connection.php");
 exit(); 
 }
 
@@ -118,7 +118,11 @@ if(isset($_GET['logout'])){
             <!-- CONTENUE PRINCIPALE -->
             <div class="main_content">
                 <!-- HEADER -->
-                <div class="header">ICI LE HEADER .</div> 
+                <div class="header">
+                    <div id="recherche">
+
+                    </div>
+                </div> 
 
                 <!-- CONTENUE -->
                 <section class="outils-contener">
@@ -131,6 +135,49 @@ if(isset($_GET['logout'])){
             <!-- SCRIPT INCLUDE LE COMPOSANT AU CLICK -->
             <script>
                 $(document).ready(function() {
+
+                    /////////////////////////////////////////////////////////
+                    //           CHARGEMENT DE LA BARRE RECHERCHE         //
+                    /////////////////////////////////////////////////////////
+                    function loadRecherche() {
+                        $.ajax({
+                            url: './composants/recherche.php',
+                            type: 'GET',
+                            success: function(response) {
+                                $('#recherche').html(response); // Ajoute le contenu
+                            },
+                            error: function(xhr, status, error) {
+                                console.error('Erreur lors du chargement du fichier PHP:', error);
+                            }
+                        });
+                    }
+                    loadRecherche();
+
+                    /////////////////////////////////////////////////////////
+                    //                  RESULTA RECHERCHE                  //
+                    /////////////////////////////////////////////////////////
+                    
+                    $(document).ready(function() {
+                        $('.form-recherche').submit(function(event) {
+                            event.preventDefault(); // Empêche le formulaire de se soumettre normalement
+                            
+                            var recherche = $(this).find('input[name="recherche"]').val(); // Récupère la valeur de l'input de recherche
+                            
+                            $.ajax({
+                                url: './composants/categorie_rechercher.php',
+                                type: 'POST',
+                                data: { recherche: recherche }, // Envoie le terme de recherche au script PHP
+                                success: function(response) {
+                                    $('#contenue').html(response); // Ajoute le contenu
+                                },
+                                error: function(xhr, status, error) {
+                                    console.error('Erreur lors du chargement du fichier PHP:', error);
+                                }
+                            });
+                        });
+                    });
+
+                    
                     /////////////////////////////////////////////////////////
                     //             CHARGEMENT DU CONTENU D'ACCUEIL         //
                     /////////////////////////////////////////////////////////
