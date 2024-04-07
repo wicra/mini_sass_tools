@@ -73,7 +73,7 @@ body{
 
 .wrapper .sidebar .social_media a{
     display: block;
-    width: 150px;
+    width: 40px;
     background: #594f8d;
     height: 40px;
     line-height: 45px;
@@ -337,13 +337,13 @@ body{
 
 
 
-/* FOMRULAIRE INSCRIPTION & CONNECTION  */
+/* FOMRULAIRE INSCRIPTION */
 
-.formulaire-inscription , .formulaire-connection{
+.formulaire-inscription{
     padding: 20vh 0;
 }
 
-.input-inscription:focus ,.input-connection:focus { /*Couleur de la valeur saisie*/
+.input-inscription:focus { /*Couleur de la valeur saisie*/
 	color: #4b4276;
 }
 
@@ -374,7 +374,7 @@ body{
 	text-align: center;
 }
 
-.textbox .input-inscription , .textbox .input-connection  {
+.textbox input {
 	border: none;
 	outline: none;
 	background: none;
@@ -383,7 +383,7 @@ body{
 	margin: 0 10px;
 }
 
-.button-inscription ,.button-connection {
+.button-inscription {
 	width: 100%;
     padding: 2vh 1vw;
     border: none;
@@ -392,7 +392,7 @@ body{
     color: white;
 }
 
-.button-inscription:active , .button-connection:active {
+.button-inscription:active {
 	transition: 0.3s;
     transform: scale(0.93);
 }

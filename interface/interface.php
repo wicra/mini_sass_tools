@@ -5,14 +5,14 @@
 
 session_start();
 if(!isset($_SESSION["username"])){
-    header("location: ./connection/formulaire_connection.php");
+    header("location: ./../index.php");
 exit(); 
 }
 
 // déconnection
 if(isset($_GET['logout'])){
     session_destroy(); 
-    header('location: ./connection/formulaire_connection.php');
+    header('location: ./../index.php');
     exit; 
 }
 ?>
@@ -64,16 +64,30 @@ if(isset($_GET['logout'])){
                             ";
                             
                         }
+                        else{
+                            echo "
+                            <div class=\"user_connecter\" href='#'>
+                                <i class=\"fa-solid fa-user  fa-bounce\" style=\"color: #FCDC12;\"></i>
+                                <h1>$user_connect</h1>
+                            </div> 
+                            ";
+                        }
                     }
                 ?>
 
                 <ul>
                     <!-- ACCUEIL -->
-                    <li class="accueil"><a href="#"><i class="fa-solid fa-house"></i>Accueil</a></li>
+                    <li class="accueil"><a href="#"><i class="fa-solid fa-house"></i><span>Accueil</span> </a></li>
                     <!-- DECONNECTION -->
-                    <li><a href="?logout=true"><i class="fa-solid fa-right-from-bracket"></i>Déconnexion</a></li>
-                    <!-- AJOUT -->
-                    <li class="ajout_outils"><a href="#"><i class="fa-regular fa-square-plus"></i>Ajouter</a></li>
+                    <li><a href="?logout=true"><i class="fa-solid fa-right-from-bracket"></i><span>Déconnexion</span></a></li>
+                    <!-- AJOUT OUTILS -->
+                    <li class="ajout_outils"><a href="#"><i class="fa-solid fa-circle-plus"></i><span>Ajouter Outils</span></a></li>
+                    <!-- AJOUT USER -->
+                    <li class="ajout_utilisateurs"><a href="#"><i class="fa-solid fa-user-plus"></i><span>Ajouter User</span></a></li>
+                    <!-- SUPPRESSION OUTILS-->
+                    <li class="suppression_outils"><a href="#"><i class="fa-solid fa-trash"></i><span>Supprimer Outils</span></a></li>
+                    <!-- SUPPRESSION OUTILS -->
+                    <li class="suppression_utilisateurs"><a href="#"><i class="fa-solid fa-ban"></i><span>Supprimer User</span></a></li>
                     
                     <!-- MENU DEROULANTE -->
                     <li class="submenu">
@@ -109,9 +123,7 @@ if(isset($_GET['logout'])){
                 </ul> 
                 <!-- RESEAUX -->
                 <div class="social_media">
-                    <a class="categorie-font" href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a class="categorie-font" href="#"><i class="fa-brands fa-github"></i></a>
                 </div>
             </div>
             
@@ -194,7 +206,23 @@ if(isset($_GET['logout'])){
                     });
 
                     /////////////////////////////////////////////////////////
-                    //                       MENU AJOUT                    //
+                    //                    MENU AJOUT OUTILS                //
+                    /////////////////////////////////////////////////////////
+                    $('.ajout_utilisateurs').click(function() {
+                        $.ajax({
+                            url: './composants/formulaire_inscription.php',
+                            type: 'GET',
+                            success: function(response) {
+                                $('#contenue').html(response); // Ajoute le contenu 
+                            },
+                            error: function(xhr, status, error) {
+                                console.error('Erreur lors du chargement du fichier PHP:', error);
+                            }
+                        });
+                    });
+
+                    /////////////////////////////////////////////////////////
+                    //                   MENU AJOUT USER                   //
                     /////////////////////////////////////////////////////////
                     $('.ajout_outils').click(function() {
                         $.ajax({
@@ -208,9 +236,39 @@ if(isset($_GET['logout'])){
                             }
                         });
                     });
+                    /////////////////////////////////////////////////////////
+                    //               MENU SUPPRESSION OUTILS               //
+                    /////////////////////////////////////////////////////////
+                    $('.suppression_outils').click(function() {
+                        $.ajax({
+                            url: './composants/formulaire_suppression_outils.php',
+                            type: 'GET',
+                            success: function(response) {
+                                $('#contenue').html(response); // Ajoute le contenu 
+                            },
+                            error: function(xhr, status, error) {
+                                console.error('Erreur lors du chargement du fichier PHP:', error);
+                            }
+                        });
+                    });
 
                     /////////////////////////////////////////////////////////
-                    //                   SOUS MENU HTML                   //
+                    //                 MENU SUPPRESSION USER               //
+                    /////////////////////////////////////////////////////////
+                    $('.suppression_utilisateurs').click(function() {
+                        $.ajax({
+                            url: './composants/formulaire_suppression_users.php',
+                            type: 'GET',
+                            success: function(response) {
+                                $('#contenue').html(response); // Ajoute le contenu 
+                            },
+                            error: function(xhr, status, error) {
+                                console.error('Erreur lors du chargement du fichier PHP:', error);
+                            }
+                        });
+                    });
+                    /////////////////////////////////////////////////////////
+                    //                   SOUS MENU HTML                    //
                     /////////////////////////////////////////////////////////
                     $('.categorie-html').click(function() {
                         $.ajax({
