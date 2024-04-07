@@ -16,7 +16,6 @@ if(isset($_GET['logout'])){
     exit; 
 }
 
-
 /////////////////////////////////////////////////////////
 //                     AJOUT OUTILS                    //
 /////////////////////////////////////////////////////////
@@ -54,7 +53,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="2">Css</option>
             <option value="3">Js</option>
             <option value="4">Divers</option>
-            <option value="5">Font</option>
         </select> 
 
         <button type="submit" class="btn">AJOUTER</button>

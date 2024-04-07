@@ -13,14 +13,13 @@ if ($resultat) {
         echo "<div class=\"outils\">
                 <div class=\"nom-site\">
                     <i class=\"fa-solid fa-globe\"></i>
-                    <a href='" . $row['domaine'] . "' target='_blank'>" . $row['name'] . "</a>
-
+                    <a  style=\"color: #FCDC12;\" href='" . $row['domaine'] . "' target='_blank'>" . $row['name'] . "</a>
                 </div>
+
                 <div class=\"description\">
                     <h4>“"  . $row['description'] .  "”</h4>
                     <h5>" . $row['user_name'] . "</h5>
                 </div>
-            
             </div>";
     }
 } else {

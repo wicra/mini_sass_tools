@@ -6,7 +6,6 @@
 include('./../connection/connection_db.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
 	session_start();
 
 	if (!isset($_SESSION['est_admin'])) {
@@ -17,8 +16,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $username = htmlspecialchars(trim($_POST["username"])); // Nettoie et récupère le nom d'utilisateur.
     $password = sha1(htmlspecialchars(trim($_POST["password"]))); // Nettoie et récupère le mot de pass cripté
-
-	
 
     // Requête SQL pour vérifier l'utilisateur dans la table identifiant.
 	$sql = "SELECT * FROM identifiant WHERE username = '$username' AND password = '$password'";
@@ -37,7 +34,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit(); 
     };
 }
-
 ?>
 
 <style>
@@ -73,7 +69,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	transition: 0.3s;
     transform: scale(0.93);
 }
-
 </style>
 
 

@@ -60,9 +60,7 @@ body{
 .wrapper .sidebar ul li:hover{
     background-color: #594f8d;
 }
-        
 
-    
 .wrapper .sidebar .social_media{
     position: absolute;
     bottom: 0;
@@ -73,7 +71,7 @@ body{
 
 .wrapper .sidebar .social_media a{
     display: block;
-    width: 40px;
+    width: 150px;
     background: #594f8d;
     height: 40px;
     line-height: 45px;
@@ -247,10 +245,21 @@ body{
     display: flex;
     padding: 20vh 0;
 }
+
 .message h1{
     color: #4b4276;
     font-weight: bold;
     font-size: 50px;
+    padding: 3vh 0;
+}
+
+.message h3{
+    padding: 1vh 0;
+    color: #bdb8d7;
+}
+
+.message h4{
+    color: #bdb8d7;
 }
 
 
@@ -259,7 +268,7 @@ body{
     border: none;
     background: none;
     color: #8b8ba7;
-  }
+}
 
 .form-recherche {
     --timing: 0.3s;
@@ -291,7 +300,7 @@ body{
     padding-block: 0.7em;
     border: none;
 }
-  
+
 .form-recherche:before {
     content: "";
     position: absolute;
@@ -309,15 +318,15 @@ body{
 .form-recherche:focus-within {
     border-radius: var(--after-border-radius);
 }
-  
+
 .form-recherche input:focus {
     outline: none;
 }
- 
+
 .form-recherche:focus-within:before {
     transform: scale(1);
 }
- 
+
 .reset {
     border: none;
     background: none;

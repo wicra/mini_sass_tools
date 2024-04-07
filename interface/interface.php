@@ -76,54 +76,111 @@ if(isset($_GET['logout'])){
                 ?>
 
                 <ul>
-                    <!-- ACCUEIL -->
-                    <li class="accueil"><a href="#"><i class="fa-solid fa-house"></i><span>Accueil</span> </a></li>
-                    <!-- DECONNECTION -->
-                    <li><a href="?logout=true"><i class="fa-solid fa-right-from-bracket"></i><span>Déconnexion</span></a></li>
-                    <!-- AJOUT OUTILS -->
-                    <li class="ajout_outils"><a href="#"><i class="fa-solid fa-circle-plus"></i><span>Ajouter Outils</span></a></li>
-                    <!-- AJOUT USER -->
-                    <li class="ajout_utilisateurs"><a href="#"><i class="fa-solid fa-user-plus"></i><span>Ajouter User</span></a></li>
-                    <!-- SUPPRESSION OUTILS-->
-                    <li class="suppression_outils"><a href="#"><i class="fa-solid fa-trash"></i><span>Supprimer Outils</span></a></li>
-                    <!-- SUPPRESSION OUTILS -->
-                    <li class="suppression_utilisateurs"><a href="#"><i class="fa-solid fa-ban"></i><span>Supprimer User</span></a></li>
-                    
-                    <!-- MENU DEROULANTE -->
-                    <li class="submenu">
-                        <a href="#"><i class="fa-solid fa-toolbox"></i>Outils</a>
+                    <?php
+                        /////////////////////////////////////////////////////////
+                        //                   USER CONNECTER                   //
+                        /////////////////////////////////////////////////////////
+                        include('./connection/connection_db.php');
+                        
+                        // Assurez-vous que $_SESSION["username"] est protégé contre les injections SQL
+                        $username = mysqli_real_escape_string($conn, $_SESSION["username"]);
 
-                        <ul class="submenu-content">
-                            <li  class="categorie-html"><a href="#" ><i class="fa-brands fa-html5"></i>Html</a></li>
-                            <li  class="categorie-css"><a href="#" ><i class="fa-brands fa-css3-alt"></i>Css</a></li>
-                            <li  class="categorie-js"><a href="#" ><i class="fa-brands fa-js"></i>Js</a></li>
-                            <li  class="categorie-divers"><a href="#" ><i class="fa-solid fa-border-all"></i>Divers</a></li>
-                            <li  class="categorie-font"><a href="#" ><i class="fa-solid fa-font"></i>Font</a></li>
-                        </ul>
+                        $requete = "SELECT est_admin FROM identifiant WHERE username = '$username'";
+                        $result = mysqli_query($conn, $requete);
+                        $user_connect =$_SESSION["username"];
+                        if ($result) {
+                            $row = mysqli_fetch_assoc($result);
+                            if ($row['est_admin'] == 1) {
+                                echo '<!-- ACCUEIL -->
+                                <li class="accueil"><a href="#"><i class="fa-solid fa-house"></i><span>Accueil</span></a></li>
+                                
+                                <!-- DECONNEXION -->
+                                <li><a href="?logout=true"><i class="fa-solid fa-right-from-bracket"></i><span>Déconnexion</span></a></li>
+                                
+                                <!-- AJOUT OUTILS -->
+                                <li class="ajout_outils"><a href="#"><i class="fa-solid fa-circle-plus"></i><span>Ajouter Outils</span></a></li>
+                                
+                                <!-- AJOUT UTILISATEURS -->
+                                <li class="ajout_utilisateurs"><a href="#"><i class="fa-solid fa-user-plus"></i><span>Ajouter User</span></a></li>
+                                
+                                <!-- SUPPRESSION OUTILS -->
+                                <li class="suppression_outils"><a href="#"><i class="fa-solid fa-trash"></i><span>Supprimer Outils</span></a></li>
+                                
+                                <!-- SUPPRESSION UTILISATEURS -->
+                                <li class="suppression_utilisateurs"><a href="#"><i class="fa-solid fa-ban"></i><span>Supprimer User</span></a></li>
+                                
+                                <!-- MENU DEROULANT -->
+                                <li class="submenu">
+                                    <a href="#"><i class="fa-solid fa-toolbox"></i>Outils</a>
+                                    <ul class="submenu-content">
+                                        <li class="categorie-html"><a href="#"><i class="fa-brands fa-html5"></i>Html</a></li>
+                                        <li class="categorie-css"><a href="#"><i class="fa-brands fa-css3-alt"></i>Css</a></li>
+                                        <li class="categorie-js"><a href="#"><i class="fa-brands fa-js"></i>Js</a></li>
+                                        <li class="categorie-divers"><a href="#"><i class="fa-solid fa-border-all"></i>Divers</a></li>
+                                    </ul>
+                                    <script>
+                                        // SOUS-MENU AFFICHAGE
+                                        document.addEventListener("DOMContentLoaded", function() {
+                                            const aboutLink = document.querySelector(".submenu > a");
+                                            const aboutSubMenu = document.querySelector(".submenu-content");
+                                            aboutLink.addEventListener("click", function(e) {
+                                                e.preventDefault(); // Empêche le lien de se comporter normalement
+                                                if (aboutSubMenu.style.display === "none" || aboutSubMenu.style.display === "") {
+                                                    aboutSubMenu.style.display = "block";
+                                                } else {
+                                                    aboutSubMenu.style.display = "none";
+                                                }
+                                            });
+                                        });
+                                    </script>
+                                </li>';
 
-                        <script>
-                            /////////////////////////////////////////////////////////
-                            //                 SOUS MENU AFFICHAGE                 //
-                            /////////////////////////////////////////////////////////
-                            document.addEventListener('DOMContentLoaded', function() {
-                                const aboutLink = document.querySelector('.submenu > a');
-                                const aboutSubMenu = document.querySelector('.submenu-content');
-                                aboutLink.addEventListener('click', function(e) {
-                                    e.preventDefault(); // Empêche le lien de se comporter normalement
-                                    // Si le sous-menu est caché, l'afficher, sinon le cacher
-                                    if (aboutSubMenu.style.display === 'none' || aboutSubMenu.style.display === '') {
-                                        aboutSubMenu.style.display = 'block';
-                                    } else {
-                                        aboutSubMenu.style.display = 'none';
-                                    }
-                                });
-                            });
-                        </script>
-                    </li>
+                                
+                                
+                            }
+                            else{
+                                echo '
+                                <!-- ACCUEIL -->
+                                <li class="accueil"><a href="#"><i class="fa-solid fa-house"></i><span>Accueil</span></a></li>
+                                
+                                <!-- DECONNEXION -->
+                                <li><a href="?logout=true"><i class="fa-solid fa-right-from-bracket"></i><span>Déconnexion</span></a></li>
+                                
+                                <!-- AJOUT OUTILS -->
+                                <li class="ajout_outils"><a href="#"><i class="fa-solid fa-circle-plus"></i><span>Ajouter Outils</span></a></li>
+                                
+                                <!-- MENU DEROULANT -->
+                                <li class="submenu">
+                                    <a href="#"><i class="fa-solid fa-toolbox"></i>Outils</a>
+                                    <ul class="submenu-content">
+                                        <li class="categorie-html"><a href="#"><i class="fa-brands fa-html5"></i>Html</a></li>
+                                        <li class="categorie-css"><a href="#"><i class="fa-brands fa-css3-alt"></i>Css</a></li>
+                                        <li class="categorie-js"><a href="#"><i class="fa-brands fa-js"></i>Js</a></li>
+                                        <li class="categorie-divers"><a href="#"><i class="fa-solid fa-border-all"></i>Divers</a></li>
+                                    </ul>
+                                    <script>
+                                        // SOUS-MENU AFFICHAGE
+                                        document.addEventListener("DOMContentLoaded", function() {
+                                            const aboutLink = document.querySelector(".submenu > a");
+                                            const aboutSubMenu = document.querySelector(".submenu-content");
+                                            aboutLink.addEventListener("click", function(e) {
+                                                e.preventDefault(); // Empêche le lien de se comporter normalement
+                                                if (aboutSubMenu.style.display === "none" || aboutSubMenu.style.display === "") {
+                                                    aboutSubMenu.style.display = "block";
+                                                } else {
+                                                    aboutSubMenu.style.display = "none";
+                                                }
+                                            });
+                                        });
+                                    </script>
+                                </li>';
+                            }
+                        }
+                    ?>
                 </ul> 
                 <!-- RESEAUX -->
                 <div class="social_media">
-                    <a class="categorie-font" href="#"><i class="fa-brands fa-github"></i></a>
+                    <a class="categorie-font" href="https://github.com/wicra"><i class="fa-brands fa-github"></i></a>
                 </div>
             </div>
             
@@ -183,7 +240,6 @@ if(isset($_GET['logout'])){
                         });
                     });
 
-                    
                     /////////////////////////////////////////////////////////
                     //             CHARGEMENT DU CONTENU D'ACCUEIL         //
                     /////////////////////////////////////////////////////////
@@ -321,22 +377,6 @@ if(isset($_GET['logout'])){
                     $('.categorie-divers').click(function() {
                         $.ajax({
                             url: './composants/categorie_divers.php',
-                            type: 'GET',
-                            success: function(response) {
-                                $('#contenue').html(response); // Ajoute le contenu
-                            },
-                            error: function(xhr, status, error) {
-                                console.error('Erreur lors du chargement du fichier PHP:', error);
-                            }
-                        });
-                    });
-
-                    /////////////////////////////////////////////////////////
-                    //                   SOUS MENU FRONT                   //
-                    /////////////////////////////////////////////////////////
-                    $('.categorie-font').click(function() {
-                        $.ajax({
-                            url: './composants/categorie_font.php',
                             type: 'GET',
                             success: function(response) {
                                 $('#contenue').html(response); // Ajoute le contenu

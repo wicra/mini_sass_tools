@@ -133,7 +133,6 @@ body{
 
 }
 
-
 /*OUTILS*/
 .outils-contener {
     width: 100%;
@@ -151,7 +150,7 @@ body{
 }
 .outils{
     width: 90%;
-    background-color: cadetblue;
+    background-color: #bdb8d7;
     padding: 2vh 1vw;
     border-radius: 0.8rem;
     text-transform: lowercase;
@@ -193,6 +192,10 @@ body{
     padding: 0px 0 1vh 0;
     height: 35px;
 }
+
+.description h5{
+    color: #4b4276;
+} 
 
 /* FORMULAIRE AJOUT & SUPPRESSION OUTILS & USER */
 
@@ -251,15 +254,24 @@ body{
     color: #4b4276;
     font-weight: bold;
     font-size: 50px;
+    padding: 3vh 0;
 }
 
+.message h3{
+    padding: 1vh 0;
+    color: #bdb8d7;
+}
+
+.message h4{
+    color: #bdb8d7;
+}
 
 /* BARRE DE RECHERCHE */
 .form-recherche button {
     border: none;
     background: none;
     color: #8b8ba7;
-  }
+}
 
 .form-recherche {
     --timing: 0.3s;
@@ -291,7 +303,7 @@ body{
     padding-block: 0.7em;
     border: none;
 }
-  
+
 .form-recherche:before {
     content: "";
     position: absolute;
@@ -309,15 +321,15 @@ body{
 .form-recherche:focus-within {
     border-radius: var(--after-border-radius);
 }
-  
+
 .form-recherche input:focus {
     outline: none;
 }
- 
+
 .form-recherche:focus-within:before {
     transform: scale(1);
 }
- 
+
 .reset {
     border: none;
     background: none;
@@ -334,7 +346,6 @@ body{
     width: 17px;
     margin-top: 3px;
 }
-
 
 
 /* FOMRULAIRE INSCRIPTION & CONNECTION  */

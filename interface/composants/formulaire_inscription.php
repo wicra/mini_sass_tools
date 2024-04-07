@@ -42,10 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 }
-
 ?>
-
-
 
 <form class="formulaire-inscription" action="./composants/formulaire_inscription.php" method="post">
     <div class="login-box">

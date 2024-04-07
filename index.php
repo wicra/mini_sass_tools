@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -20,6 +19,7 @@
         <!-- AJAX -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
+
     <body>
         <div class="wrapper">
             <div class="sidebar">
@@ -28,7 +28,6 @@
                     <h1>Public</h1>
                 </div> 
                 
-
                 <ul>
                     <!-- ACCUEIL -->
                     <li class="accueil"><a href="#"><i class="fa-solid fa-house"></i><span>Accueil</span> </a></li>
@@ -38,15 +37,15 @@
                 </ul> 
                 <!-- RESEAUX -->
                 <div class="social_media">
-                    <a href="#"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://github.com/wicra"><i class="fa-brands fa-github"></i></a>
                 </div>
             </div>
-            
+
             <!-- CONTENUE PRINCIPALE -->
             <div class="main_content">
                 <!-- HEADER -->
                 <div class="header">
-                    <h3>Connectez vous pour avoir accès</h3>
+                    <h3>Connectez-vous pour avoir accès</h3>
                 </div> 
 
                 <!-- CONTENUE -->

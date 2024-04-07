@@ -41,6 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <p class="heading">Supprimer un outil</p>
     <div class="contener-input">
         <input class="input-ajout" placeholder="Nom du site" type="text" name="nom_site">
+        
         <input class="input-ajout" placeholder="Nom de l'utilisateur" type="text" name="user_ajout">
 
         <button type="submit" class="btn">SUPPRIMER</button>
