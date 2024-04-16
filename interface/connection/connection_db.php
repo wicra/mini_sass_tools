@@ -6,8 +6,8 @@
 $servername = "sql.freedb.tech";
 $port = '3306';
 $dbname = "freedb_outils";
-$username = "freedb_wicra";
-$password = 'UA3Xjqt$m?NWBFe';
+$username = "";
+$password = '';
 
 $conn = mysqli_connect($servername, $username, $password, $dbname, $port);
 if (!$conn) {
